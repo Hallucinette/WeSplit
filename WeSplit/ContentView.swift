@@ -35,10 +35,12 @@ struct ContentView: View {
         NavigationView {
             Form{
                 Section{
+                    // here we can put the price of the bill. i creat a TextFiled and i give him the number keyboard and a value (USD = $)
                     TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
                         .keyboardType(.decimalPad)
                         .focused($amountIsFocused)
                     
+                    //here we put the number of people who want paid. this is a picker so we don't write, we chose in limited list (at 100 person)
                     Picker("Number of people", selection: $numberOfPeople){
                         ForEach(2 ..< 100){
                             Text("\($0) people")
